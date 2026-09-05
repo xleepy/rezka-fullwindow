@@ -19,11 +19,14 @@ and load `src` instead.
 
 ## Use
 
-- Click **Fill window** at the top right of the page.
+- Click **Fill window** at the bottom right of the player, above the playback controls.
 - Click **Restore player** or press **Escape** to restore the page.
 - The extension toolbar icon and **Alt+Shift+W** also toggle the player size.
 - Change the shortcut at `chrome://extensions/shortcuts` if it conflicts with another shortcut.
-- Restore the page to select another episode or translation.
+- In full window mode, **Next episode** appears during the last 90 seconds
+  (or the last 10% of shorter episodes). Click it to select the next available
+  episode in the current season. Full window mode stays active.
+- Restore the page to change the season or translation.
 
 If an embedded player has keyboard focus, Escape may not reach the page.
 Use **Restore player**, the toolbar icon, or the extension shortcut in that case.
@@ -75,7 +78,10 @@ Build and test dependencies are not included in the extension ZIP.
 ## Limits
 
 The site must load the video successfully for playback to work. This extension only
-changes the layout. Site changes can require updates to the player selectors.
+changes the layout and uses the site's episode controls. Site changes can require
+updates to the player selectors. The next episode button requires a readable video
+duration and a next episode in the current episode list. Videos inside cross-origin
+iframes do not expose their playback time, so the button remains hidden for them.
 Other Rezka mirror domains are not supported.
 
 The initial live-page check confirmed player expansion and restoration. The live site
