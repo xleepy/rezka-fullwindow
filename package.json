@@ -1,0 +1,19 @@
+{
+  "name": "rezka-fullwindow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension that expands the Rezka player to the browser window.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check src/content.js && node --check src/background.js && node scripts/validate.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/background.test.mjs && playwright test",
+    "verify": "npm run check && npm run build && npm test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "fflate": "0.8.3"
+  }
+}
